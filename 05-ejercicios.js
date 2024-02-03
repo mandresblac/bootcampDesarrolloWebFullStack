@@ -1,6 +1,13 @@
 // EJERCICIO 1
 /* Crea una función que reciba días, horas, minutos y segundos (como enteros) y retorne su resultado en milisegundos. */
 
+// 1 milisegundo = 0.001 segundos
+// 1 segundo = 1.000 milisegundos
+// 60.000 milisegundo = 1 minuto
+function tiempo(dias, horas, minutos, segundos) {}
+
+console.log(tiempo(3, 5, 30, 10));
+
 // EJERCICIO 2
 /* 
 Crea una función que reciba dos array, un booleano y retorne un array.
