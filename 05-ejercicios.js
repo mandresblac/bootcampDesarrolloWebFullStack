@@ -1,12 +1,40 @@
 // EJERCICIO 1
 /* Crea una función que reciba días, horas, minutos y segundos (como enteros) y retorne su resultado en milisegundos. */
 
-// 1 milisegundo = 0.001 segundos
-// 1 segundo = 1.000 milisegundos
-// 60.000 milisegundo = 1 minuto
-function tiempo(dias, horas, minutos, segundos) {}
+function tiempo(dias, horas, minutos, segundos) {
+  // Definimos las conversiones
+  const milisegundosEnUnSegundo = 1000;
+  const segundosEnUnMinuto = 60;
+  const minutosEnUnaHora = 60;
+  const horasEnUnDia = 24;
 
-console.log(tiempo(3, 5, 30, 10));
+  // Convertir días a milisegundos
+  const diasAMilisegundos =
+    dias *
+    horasEnUnDia *
+    minutosEnUnaHora *
+    segundosEnUnMinuto *
+    milisegundosEnUnSegundo;
+
+  // Convertir horas a milisegundos
+  const horasAMilisegundos =
+    horas * minutosEnUnaHora * segundosEnUnMinuto * milisegundosEnUnSegundo;
+
+  // Convertir minutos a milisegundos
+  const minutosAMilisegundos =
+    minutos * segundosEnUnMinuto * milisegundosEnUnSegundo;
+
+  // Convertir segundos a milisegundos
+  const segundosAMilisegundos = segundos * milisegundosEnUnSegundo;
+
+  // Calculamos el total de milisegundos
+  const totalMilisegundos = `${dias} dias son ${diasAMilisegundos} milisegundos \n${horas} horas son ${horasAMilisegundos} milisegundos \n${minutos} minutos son ${minutosAMilisegundos} milisegundos \n${segundos} segundos son ${segundosAMilisegundos} milisegundos`;
+
+  // Retornar total milisegundos
+  return totalMilisegundos;
+}
+
+console.log(tiempo(2, 5, 30, 10));
 
 // EJERCICIO 2
 /* 
