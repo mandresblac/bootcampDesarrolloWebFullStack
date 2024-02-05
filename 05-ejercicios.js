@@ -92,3 +92,54 @@ console.log(compararArrays(ar1, ar2, false)); */
 
 // EJERCICIO 3
 /* Desarrolla un programa que sume todos los números primos en un rango dado. El usuario debe ingresar el rango, y el programa debe mostrar la suma de los números primos dentro de ese rango. */
+
+/* Los números primos son números naturales mayores que 1 que solo tienen dos divisores positivos: 1 y ellos mismos. Es decir, un número primo es aquel que no puede ser dividido de manera exacta por ningún otro número excepto 1 y él mismo.
+
+Ejemplos de números primos: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31
+*/
+
+// Función para verificar si un número es primo
+function esPrimo(numero) {
+  if (numero <= 1) return false; // Verifica si el número es menor o igual a 1, ya que los números primos deben ser mayores a 1
+
+  // Verificar divisibilidad del número desde 2 hasta la raíz cuadrada del número
+  for (let i = 2; i <= Math.sqrt(numero); i++) {
+    if (numero % i === 0) {
+      // Si el número es divisible por algún valor en el rango, no es primo
+      return false;
+    }
+  }
+  // Si no se encuentra ningún divisor, es primo
+  return true;
+}
+
+// Función para sumar los números primos en un rango
+function sumaPrimosEnRango(inferior, superior) {
+  let suma = 0;
+  for (let i = inferior; i <= superior; i++) {
+    if (esPrimo(i)) {
+      suma += i;
+    }
+  }
+  return suma;
+}
+
+let rangoInferior = parseInt(prompt("Ingrese el límite inferior del rango:"));
+let rangoSuperior = parseInt(prompt("Ingrese el límite superior del rango:"));
+
+// Validar la entrada del usuario
+if (
+  isNaN(rangoInferior) ||
+  isNaN(rangoSuperior) ||
+  rangoInferior >= rangoSuperior
+) {
+  console.log(
+    "Entrada inválida. Asegúrese de que los límites sean números y el límite inferior sea menor al límite superior."
+  );
+} else {
+  // Calcular y mostrar la suma de los números primos en el rango
+  let resultado = sumaPrimosEnRango(rangoInferior, rangoSuperior);
+  console.log(
+    `La suma de los números primos en el rango [${rangoInferior}, ${rangoSuperior}] es: ${resultado}`
+  );
+}
