@@ -40,4 +40,4 @@ function generadorContrasena(
 }
 
 // uso
-console.log(generadorContrasena(10, true, true, true, true));
+console.log(generadorContrasena(5, true, true, true, true));
